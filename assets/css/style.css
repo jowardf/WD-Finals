@@ -594,9 +594,7 @@ a{
     flex-direction: column;
     gap: 2rem;
 
-    animation: fadeIn 2s linear forwards;
-    animation-timeline: view();
-    animation-range: entry 50px;
+    
 }
 .about-subtitle {
     position: relative;
@@ -643,10 +641,6 @@ a{
     transform: translateX(15rem);
     opacity: 0;
     text-transform: uppercase;
-
-    /* animation: fadeIn 3s linear forwards;
-    animation-timeline: view();
-    animation-range: entry 50px; */
 }
 
 .about-p:hover {
@@ -713,16 +707,24 @@ a{
     }
   }
 
-  .fadeIn {
+  .fadeIn-right {
     opacity: 0;
-    transform: translateX(10rem);
+    transform: translateX(20rem);
 
     animation: fadeIn linear forwards;
     animation-timeline: view();
-    animation-range: entry 200px;
+    animation-range: entry 100px;
+}
+
+.fadeIn-left {
+    opacity: 0;
+    transform: translateX(-20rem);
+
+    animation: fadeIn linear forwards;
+    animation-timeline: view();
+    animation-range: entry 100px;
 }
 @keyframes fadeIn {
-    from {opacity: 0;  transform: translateX(20rem);    }
     to {opacity: 1; transform: translateX(0);}
 }
 .open-space {
@@ -736,17 +738,12 @@ a{
     filter: blur(3px) brightness(50%);
 }
 .portfolio {
-    outline: 2px red dashed;
     height: 130dvh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    animation: fadeIn 3s linear forwards;
-    animation-timeline: view();
-    animation-range: entry;
 }
 
 .collection {
@@ -761,33 +758,51 @@ a{
     width: 20dvw;
     margin: 15px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     backdrop-filter: blur(1px);
-    border: 2px var(--neon-yellow) solid;
+    border: 1px var(--neon-yellow) solid;
     position: relative;
     box-shadow: 0 0 10px var(--neon-yellow),
+                0 0 20px var(--neon-yellow),
                 inset 0 0 10px var(--neon-yellow);
     transition: 0.3s ease;
 
 }
 
 .card:hover {
-    background-color: var(--neon-yellow);
+    background-color: transparent;
     transform: scale(1.1);
 }
 
 .collection:hover > :not(:hover) {
     opacity: 0.5;
     transform: scale(0.9);
+    filter: blur(2px);
+}
+.card:nth-child(even){
+    animation: box-flicker 5s linear infinite;
 }
 .card:nth-child(1){
-    animation: box-flicker 3s linear infinite;
-}
-.card:nth-child(2){
     animation: box-flicker 2s linear infinite;
 }
 .card:nth-child(3) {
-    animation: box-flicker 5s linear infinite;
+    animation: box-flicker 3s linear infinite;
+}
+
+.card-desc {
+    text-align: center;
+    opacity: 0;
+    transition: 0.3s ease;
+    transition-delay: 0.2s;
+}
+
+.card:hover .card-desc {
+    /* transform: translate(-50%, -50%); */
+    animation: bounce 2s ease 0s 1 normal forwards;
+    animation-delay: 0.3s;
 }
 .card-title {
     position: absolute;
@@ -837,8 +852,52 @@ a{
     }
   }
 
+/* Copy this code after the above code */
+@keyframes bounce {
+  0% {
+	animation-timing-function: ease-in;
+	opacity: 1;
+	transform: translateY(-45px);
+  }
 
+  24% {
+	opacity: 1;
+  }
 
+  40% {
+	animation-timing-function: ease-in;
+	transform: translateY(-24px);
+  }
+
+  65% {
+	animation-timing-function: ease-in;
+	transform: translateY(-12px);
+  }
+
+  82% {
+	animation-timing-function: ease-in;
+	transform: translateY(-6px);
+  }
+
+  93% {
+	animation-timing-function: ease-in;
+	transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+	animation-timing-function: ease-out;
+	transform: translateY(0px);
+  }
+
+  100% {
+	animation-timing-function: ease-out;
+	opacity: 1;
+	transform: translateY(0px);
+  }
+}
 
 
 
