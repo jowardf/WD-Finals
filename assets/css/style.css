@@ -555,7 +555,7 @@ a{
 }
 
 .about {
-    height: 100dvh;
+    height: 120dvh;
     width: 100%;
     padding: 4rem 7rem;
     color: var(--neon-yellow);
@@ -593,6 +593,10 @@ a{
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    animation: fadeIn 2s linear forwards;
+    animation-timeline: view();
+    animation-range: entry 50px;
 }
 .about-subtitle {
     position: relative;
@@ -626,16 +630,23 @@ a{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
 
+
+}
+.about-desc > p {
+    animation: fadeIn 3s linear forwards;
+    animation-timeline: view();
+    animation-range: entry 50px;
+}
 .about-p {
     position: relative;
     transform: translateX(15rem);
     opacity: 0;
+    text-transform: uppercase;
 
-    animation: fadeIn 3s linear forwards;
+    /* animation: fadeIn 3s linear forwards;
     animation-timeline: view();
-    animation-range: entry 50px;
+    animation-range: entry 50px; */
 }
 
 .about-p:hover {
@@ -711,51 +722,120 @@ a{
     animation-range: entry 200px;
 }
 @keyframes fadeIn {
+    from {opacity: 0;  transform: translateX(20rem);    }
     to {opacity: 1; transform: translateX(0);}
 }
 .open-space {
     height: 20dvh;
     width: 100%;
     background-color: black;
+    background-image: url(../img/bg-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px) brightness(50%);
 }
 .portfolio {
-    height: 200dvh;
+    outline: 2px red dashed;
+    height: 130dvh;
     width: 100%;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    animation: fadeIn 3s linear forwards;
+    animation-timeline: view();
+    animation-range: entry;
 }
 
 .collection {
     display: flex;
-    flex-direction: column;
-
-}
-
-.seatwork-collection {
-    outline: 2px red dashed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-}
-.hands-on-collection {
-    height: 100%;
-    width: 100%;
-    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
 }
 
 .card {
-    /* outline: 2px red dashed; */
+    flex: 1 0 30%;
     height: 50dvh;
-    width: 30dvw;
-    margin: 10px;
+    width: 20dvw;
+    margin: 15px;
     color: white;
     background-color: transparent;
-    border: 2px yellow solid;
+    backdrop-filter: blur(1px);
+    border: 2px var(--neon-yellow) solid;
+    position: relative;
+    box-shadow: 0 0 10px var(--neon-yellow),
+                inset 0 0 10px var(--neon-yellow);
+    transition: 0.3s ease;
+
 }
 
+.card:hover {
+    background-color: var(--neon-yellow);
+    transform: scale(1.1);
+}
 
+.collection:hover > :not(:hover) {
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+.card:nth-child(1){
+    animation: box-flicker 3s linear infinite;
+}
+.card:nth-child(2){
+    animation: box-flicker 2s linear infinite;
+}
+.card:nth-child(3) {
+    animation: box-flicker 5s linear infinite;
+}
+.card-title {
+    position: absolute;
+    left: -4%;
+    bottom: 5%;
+    height: 30px;
+    width: 19dvw;
+    border-radius: 2px;
+    background-color: var(--neon-blue);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    align-content: center;
+    border: 2px var(--neon-blue) solid;
+    box-shadow: 0 0 15px var(--neon-blue);
+    color: white;
 
+}
 
+@keyframes glow {
+    0%,
+  100% {
+    box-shadow: 0 0 5px var(--neon-yellow), 0 0 10px var(--neon-yellow), 0 0 15px var(--neon-yellow), 0 0 20px var(--neon-yellow), inset 0 0 5px var(--neon-yellow), inset 0 0 10px var(--neon-yellow),;
+    color: var(--neon-yellow);
+  }
+  50% {
+    box-shadow: 0 0 2.5px var(--neon-yellow), 0 0 5px var(--neon-yellow), 0 0 7.5px var(--neon-yellow), 0 0 10px var(--neon-yellow);
+    color: var(--neon-yellow);
+  }
+}
 
+@keyframes box-flicker {
+
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        box-shadow:
+        0 0 2px #fff,
+        0 0 4px #fff,
+        0 0 10px var(--neon-yellow),
+        0 0 15px var(--neon-yellow),
+        0 0 20px var(--neon-yellow);
+
+    }
+
+    20%, 24%, 55% {
+        box-shadow: none;
+    }
+  }
 
 
 
