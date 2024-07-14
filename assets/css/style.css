@@ -14,13 +14,16 @@
     --neon-blue: #02d7f2;
 }
 header{
-    background-color: rgb(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    height: 70px;
+  outline: 1px red dashed;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
     position: absolute;
-    width: 100%;
+    top: 1%;
+    left: 5%;
+    height: 70px;
+    width: 90%;
+    border-radius: 25px;
     z-index: 1;
-    top: 0;
 }
 
 body {
@@ -42,8 +45,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3rem;
     gap: 2rem;
+}
+
+.logo {
+  outline: 1px red dashed;
+  margin-left: 25px;
 }
 a{
     text-decoration: none;
@@ -56,6 +63,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: -5px 0;
 }
 
 .active{
@@ -63,15 +71,22 @@ a{
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    background-color:var(--neon-yellow);
+    background-color:var(--neon-red);
+    clip-path: polygon(0 30%, 10% 15%, 10% 0, 100% 0, 100% 15%, 90% 30%, 90% 70%, 100% 85%, 100% 100%, 10% 100%, 10% 85%, 0 70%);
     color: black;
     height: 100%;
-    width: 6rem;
+    width: 7rem;
     text-transform: uppercase;
 }
 
 .anchor{
-    padding: 10px 40px;
+    padding: 10px 30px;
+    margin: -3px;
+    height: 100%;
+    align-content: center;
+    color: black;
+    background-color: var(--neon-yellow);
+    clip-path: polygon(0 30%, 10% 15%, 10% 0, 100% 0, 100% 15%, 90% 30%, 90% 70%, 100% 85%, 100% 100%, 10% 100%, 10% 85%, 0 70%);
     transition: 0.3s ease;
     text-transform: uppercase;
 }
@@ -79,8 +94,10 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 2px;
-    background-color:#f2e900;
+    background-color: var(--neon-blue);
+    clip-path: polygon(0 30%, 10% 15%, 10% 0, 100% 0, 100% 15%, 90% 30%, 90% 70%, 100% 85%, 100% 100%, 10% 100%, 10% 85%, 0 70%);
+    transform: translate(-7px, -7px);
+    filter: drop-shadow(7px 7px 1px var(--neon-red));
     color: black;
     height: 100%;
 }
@@ -757,12 +774,14 @@ a{
     height: 50dvh;
     width: 20dvw;
     margin: 15px;
+    padding: 5px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    backdrop-filter: blur(1px);
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
+    backdrop-filter: blur(20px);
     border: 1px var(--neon-yellow) solid;
     position: relative;
     box-shadow: 0 0 10px var(--neon-yellow),
@@ -773,7 +792,8 @@ a{
 }
 
 .card:hover {
-    background-color: transparent;
+    background-color: #0f0f0f;
+    background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
     transform: scale(1.1);
 }
 
