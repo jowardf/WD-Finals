@@ -8,19 +8,19 @@
 
 :root {
     font-size: 16px;
+    --font-family: "Oxanium", sans-serif;
 
     --neon-yellow: #f2e900;
     --neon-red: #ff2a6d;
     --neon-blue: #02d7f2;
 }
 header{
-  outline: 1px red dashed;
     background-color: transparent;
     backdrop-filter: blur(15px);
     position: absolute;
     top: 1%;
     left: 5%;
-    height: 70px;
+    height: 60px;
     width: 90%;
     border-radius: 25px;
     z-index: 1;
@@ -28,16 +28,23 @@ header{
 
 body {
     background-color: #000000;
+    outline: 1px red dashed;
+    overflow-x: hidden;
     background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
-    font-family: "Oxanium", sans-serif;
+    font-family: var(--font-family);
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     background-color:yellow;
+    width: 7px;
+    transition: 1s ease;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #ff003c;
-  } */
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+  }
 
 .nav-head{
     height: 100%;
@@ -64,6 +71,7 @@ a{
     justify-content: center;
     align-items: center;
     margin: -5px 0;
+    white-space: nowrap;
 }
 
 .active{
@@ -102,16 +110,8 @@ a{
     height: 100%;
 }
 
-.hero-img-container {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
-
 .hero-img {
     position: absolute;
-    /* top: 0;
-    left: 0; */
     inset: 0;
     width: 100%;
     height: 100%;
@@ -130,6 +130,7 @@ a{
 .hero-section {
     display: grid;
     place-content: center;
+    max-width: 100%;
     width: 100%;
     height: 100dvh;
     position: relative;
@@ -145,11 +146,6 @@ a{
   letter-spacing: 10px;
 
   filter: drop-shadow(0 1px 3px);
-}
-
-.demo {
-  height: 100px;
-  background: #fff;
 }
 
 .layers {
@@ -567,8 +563,8 @@ a{
 }
 
 @keyframes hero-img-animation {
-    85% {opacity: 0; transform: scale(3);}
-    /* 100% {display: none;} */
+    25% {opacity: 1;}
+    85%, 100% {opacity: 0; transform: scale(3);}
 }
 
 .about {
