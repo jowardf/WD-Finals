@@ -1,0 +1,826 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+    --font-family: "Oxanium", sans-serif;
+
+    --neon-yellow: #f2e900;
+    --neon-red: #ff2a6d;
+    --neon-blue: #02d7f2;
+}
+
+::-webkit-scrollbar {
+    background-color:var(--neon-yellow);
+    width: 7px;
+    transition: 1s ease;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #ff003c;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+  }
+
+header{
+    background-color: transparent;
+    position: fixed;
+    top: 3%;
+    right: 1%;
+    height: 50px;
+    width: 595px;
+    z-index: 1;
+}
+
+body {
+    background-color: #000000;
+    overflow-x: hidden;
+    background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
+    font-family: var(--font-family);
+}
+
+.nav-head{
+    height: 100%;
+    width: 100%;
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-wrapper {
+  outline: 2px black solid;
+  box-shadow: 0 0 20px black;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.logo {
+  position: absolute;
+  top: -11px;
+  left: -35px;
+  height: 100px;
+  width: 100px;
+  margin-left: 25px;
+  transition: 0.7s ease-out;
+}
+
+.img-wrapper:hover .logo{
+  scale: 3;
+  translate: 13px 70px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-a{
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -5px 0;
+    white-space: nowrap;
+}
+
+.anchor{
+    padding: 10px 20px;
+    margin: -4px;
+    height: 100%;
+    width: 125px;
+    text-align: center;
+    align-content: center;
+    color: black;
+    background-color: var(--neon-yellow);
+    clip-path: polygon(0 30%, 10% 15%, 10% 0, 100% 0, 100% 15%, 90% 30%, 90% 70%, 100% 85%, 100% 100%, 10% 100%, 10% 85%, 0 70%);
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.first {
+  padding: 10px 30px;
+  margin: -4px;
+  height: 100%;
+  width: 125px;
+  text-align: center;
+  align-content: center;
+  color: black;
+  background-color: var(--neon-yellow);
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  clip-path: polygon(100% 0, 100% 15%, 90% 30%, 90% 70%, 100% 85%, 100% 100%, 20% 100%, 0 65%, 0 0);
+}
+
+.last{
+  padding: 10px 30px;
+  margin: -4px;
+  height: 100%;
+  width: 125px;
+  text-align: center;
+  align-content: center;
+  color: black;
+  background-color: var(--neon-yellow);
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  clip-path: polygon(0 30%, 10% 15%, 10% 0%, 80% 0, 100% 35%, 100% 100%, 10% 100%, 10% 85%, 0% 70%);
+}
+
+.active {
+    background-color: var(--neon-red);
+  }
+.anchor:hover, .first:hover, .last:hover{
+    background-color: var(--neon-blue);
+    transform: translate(-7px, -7px);
+}
+
+.hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    filter: brightness(30%);
+    object-fit: cover;
+    z-index: -1;
+
+    animation: hero-img-animation linear forwards;
+    animation-timeline: view();
+    animation-range: exit;
+}
+
+
+/* HERO GLITCH */
+.hero-section {
+    display: grid;
+    place-content: center;
+    max-width: 100%;
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+}
+
+.myName {
+  position: absolute;
+  inset: 40px;
+  color: #fff;
+  letter-spacing: 5px;
+  height: 40px;
+  width: 100px;
+  font-size: 40px;
+  z-index: 1;
+  font-family: "Orbitron", sans-serif;
+
+  animation: flicker 1.5s infinite alternate;
+}
+.hero {
+  font-size: clamp(40px, 10vw, 100px);
+  line-height: 1;
+  display: inline-block;
+  color: #fff;
+  z-index: 2;
+  letter-spacing: 10px;
+
+  filter: drop-shadow(0 1px 3px);
+}
+
+.layers {
+  position: relative;
+}
+
+.layers::before,
+.layers::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 110%;
+  z-index: -1;
+}
+
+.layers::before {
+  top: 10px;
+  left: 15px;
+  color: #e0287d;
+}
+
+.layers::after {
+  top: 5px;
+  left: -10px;
+  color: #1bc7fb;
+}
+
+.paths {
+  animation: paths 5s step-end infinite;
+}
+
+@keyframes paths {
+  0% {
+    clip-path: polygon(
+      0% 43%,
+      83% 43%,
+      83% 22%,
+      23% 22%,
+      23% 24%,
+      91% 24%,
+      91% 26%,
+      18% 26%,
+      18% 83%,
+      29% 83%,
+      29% 17%,
+      41% 17%,
+      41% 39%,
+      18% 39%,
+      18% 82%,
+      54% 82%,
+      54% 88%,
+      19% 88%,
+      19% 4%,
+      39% 4%,
+      39% 14%,
+      76% 14%,
+      76% 52%,
+      23% 52%,
+      23% 35%,
+      19% 35%,
+      19% 8%,
+      36% 8%,
+      36% 31%,
+      73% 31%,
+      73% 16%,
+      1% 16%,
+      1% 56%,
+      50% 56%,
+      50% 8%
+    );
+  }
+
+  5% {
+    clip-path: polygon(
+      0% 29%,
+      44% 29%,
+      44% 83%,
+      94% 83%,
+      94% 56%,
+      11% 56%,
+      11% 64%,
+      94% 64%,
+      94% 70%,
+      88% 70%,
+      88% 32%,
+      18% 32%,
+      18% 96%,
+      10% 96%,
+      10% 62%,
+      9% 62%,
+      9% 84%,
+      68% 84%,
+      68% 50%,
+      52% 50%,
+      52% 55%,
+      35% 55%,
+      35% 87%,
+      25% 87%,
+      25% 39%,
+      15% 39%,
+      15% 88%,
+      52% 88%
+    );
+  }
+
+  30% {
+    clip-path: polygon(
+      0% 53%,
+      93% 53%,
+      93% 62%,
+      68% 62%,
+      68% 37%,
+      97% 37%,
+      97% 89%,
+      13% 89%,
+      13% 45%,
+      51% 45%,
+      51% 88%,
+      17% 88%,
+      17% 54%,
+      81% 54%,
+      81% 75%,
+      79% 75%,
+      79% 76%,
+      38% 76%,
+      38% 28%,
+      61% 28%,
+      61% 12%,
+      55% 12%,
+      55% 62%,
+      68% 62%,
+      68% 51%,
+      0% 51%,
+      0% 92%,
+      63% 92%,
+      63% 4%,
+      65% 4%
+    );
+  }
+
+  45% {
+    clip-path: polygon(
+      0% 33%,
+      2% 33%,
+      2% 69%,
+      58% 69%,
+      58% 94%,
+      55% 94%,
+      55% 25%,
+      33% 25%,
+      33% 85%,
+      16% 85%,
+      16% 19%,
+      5% 19%,
+      5% 20%,
+      79% 20%,
+      79% 96%,
+      93% 96%,
+      93% 50%,
+      5% 50%,
+      5% 74%,
+      55% 74%,
+      55% 57%,
+      96% 57%,
+      96% 59%,
+      87% 59%,
+      87% 65%,
+      82% 65%,
+      82% 39%,
+      63% 39%,
+      63% 92%,
+      4% 92%,
+      4% 36%,
+      24% 36%,
+      24% 70%,
+      1% 70%,
+      1% 43%,
+      15% 43%,
+      15% 28%,
+      23% 28%,
+      23% 71%,
+      90% 71%,
+      90% 86%,
+      97% 86%,
+      97% 1%,
+      60% 1%,
+      60% 67%,
+      71% 67%,
+      71% 91%,
+      17% 91%,
+      17% 14%,
+      39% 14%,
+      39% 30%,
+      58% 30%,
+      58% 11%,
+      52% 11%,
+      52% 83%,
+      68% 83%
+    );
+  }
+
+  76% {
+    clip-path: polygon(
+      0% 26%,
+      15% 26%,
+      15% 73%,
+      72% 73%,
+      72% 70%,
+      77% 70%,
+      77% 75%,
+      8% 75%,
+      8% 42%,
+      4% 42%,
+      4% 61%,
+      17% 61%,
+      17% 12%,
+      26% 12%,
+      26% 63%,
+      73% 63%,
+      73% 43%,
+      90% 43%,
+      90% 67%,
+      50% 67%,
+      50% 41%,
+      42% 41%,
+      42% 46%,
+      50% 46%,
+      50% 84%,
+      96% 84%,
+      96% 78%,
+      49% 78%,
+      49% 25%,
+      63% 25%,
+      63% 14%
+    );
+  }
+
+  90% {
+    clip-path: polygon(
+      0% 41%,
+      13% 41%,
+      13% 6%,
+      87% 6%,
+      87% 93%,
+      10% 93%,
+      10% 13%,
+      89% 13%,
+      89% 6%,
+      3% 6%,
+      3% 8%,
+      16% 8%,
+      16% 79%,
+      0% 79%,
+      0% 99%,
+      92% 99%,
+      92% 90%,
+      5% 90%,
+      5% 60%,
+      0% 60%,
+      0% 48%,
+      89% 48%,
+      89% 13%,
+      80% 13%,
+      80% 43%,
+      95% 43%,
+      95% 19%,
+      80% 19%,
+      80% 85%,
+      38% 85%,
+      38% 62%
+    );
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    clip-path: none;
+  }
+}
+
+.movement {
+  position: relative;
+  animation: movement 8s step-end infinite;
+}
+
+@keyframes movement {
+  0% {
+    top: 0px;
+    left: -20px;
+  }
+
+  15% {
+    top: 10px;
+    left: 10px;
+  }
+
+  60% {
+    top: 5px;
+    left: -10px;
+  }
+
+  75% {
+    top: -5px;
+    left: 20px;
+  }
+
+  100% {
+    top: 10px;
+    left: 5px;
+  }
+}
+
+.opacity {
+  animation: opacity 5s step-end infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.1;
+  }
+
+  5% {
+    opacity: 0.7;
+  }
+
+  30% {
+    opacity: 0.4;
+  }
+
+  45% {
+    opacity: 0.6;
+  }
+
+  76% {
+    opacity: 0.4;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    opacity: 0;
+  }
+}
+
+.font {
+  animation: font 7s step-end infinite;
+}
+
+@keyframes font {
+  0% {
+    font-weight: 100;
+    color: #e0287d;
+    filter: blur(3px);
+  }
+
+  20% {
+    font-weight: 500;
+    color: #fff;
+    filter: blur(0);
+  }
+
+  50% {
+    font-weight: 300;
+    color: #1bc7fb;
+    filter: blur(2px);
+  }
+
+  60% {
+    font-weight: 700;
+    color: #fff;
+    filter: blur(0);
+  }
+
+  90% {
+    font-weight: 500;
+    color: #e0287d;
+    filter: blur(6px);
+  }
+}
+
+
+.glitch span {
+  animation: paths 5s step-end infinite;
+}
+
+.glitch::before {
+  animation: paths 5s step-end infinite, opacity 5s step-end infinite, font 8s step-end infinite, movement 10s step-end infinite;
+}
+
+.glitch::after {
+  animation: paths 5s step-end infinite, opacity 5s step-end infinite, font 7s step-end infinite, movement 8s step-end infinite;
+}
+
+.hero-container {
+  position: relative;
+  opacity: 1;
+
+  animation:fade-out linear forwards;
+  animation-timeline: view();
+  animation-range: exit -300px;
+}
+
+
+@keyframes fade-out {
+    to {opacity: 0;}
+}
+
+@keyframes hero-img-animation {
+    25% {opacity: 1;}
+    85%, 100% {opacity: 0; transform: scale(3);}
+}
+
+@keyframes flicker {
+
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px var(--neon-blue),
+      0 0 80px var(--neon-blue),
+      0 0 90px var(--neon-blue),
+      0 0 100px var(--neon-blue),
+      0 0 150px var(--neon-blue);
+
+  }
+
+  20%, 24%, 55% {
+      text-shadow: none;
+  }
+}
+
+@keyframes hxafter {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    51% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .space {
+  height: 20dvh;
+  width: 100%;
+}
+.open-space1 {
+    height: 20dvh;
+    width: 100%;
+    margin: 50px 0;
+    background-color: black;
+    background-image: url(../../../../assets/img/bg-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 -150px;
+    filter: blur(1px) brightness(50%);
+    box-shadow: inset 0 0 10px white;
+  mask-image: radial-gradient(black, black, transparent );
+}
+
+.open-space2 {
+  height: 20dvh;
+  width: 100%;
+  margin: 50px 0;
+  background-color: black;
+  background-image: url(../../../../assets/img/neon-cat.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -400px ;
+  filter: blur(1px) brightness(50%);
+  box-shadow: inset 0 0 10px white;
+  mask-image: radial-gradient(black, black, transparent);
+}
+
+.aboutMe {
+    height: 100dvh;
+    width: 100%;
+    padding: 50px 150px 0 150px;
+}
+
+.aboutMe-title {
+    font-size: 70px;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 10px;
+
+    color: #fff;
+    text-transform: uppercase;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.aboutMe-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+.aboutMe-desc {
+    margin-top: 50px;
+    width: 50%;
+    color: var(--neon-yellow);
+    font-size: 28px;
+    font-weight: 400;
+    font-family: "Orbitron", sans-serif;
+    text-align: justify;
+    letter-spacing: 1px;
+    text-shadow: 0 0 4px var(--neon-yellow);
+}
+
+.barcode {
+    text-align: center;
+    margin-top: 50px;
+    filter: invert(80%) sepia(68%) saturate(647%) hue-rotate(2deg) brightness(104%) contrast(101%);
+    width: 30rem;
+    aspect-ratio: 3/1;
+}
+
+.autoShow {
+    animation: autoShowAnimation both;
+    animation-timeline: view(70% 5%);
+}
+
+@keyframes autoShowAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.progLang {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(var(--row), 100px);
+    margin-top: 50px;
+    gap: 50px;
+    padding: 0 150px;
+    font-family: "Orbitron", sans-serif;
+    color: var(--neon-yellow);
+    text-shadow: 0 0 4px var(--neon-yellow);
+    position: relative;
+}
+
+.progLang::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(../img/aboutMe-bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter : blur(10px) brightness(40%);
+    z-index: -1;
+}
+.grid{
+    --row: 6;
+    font-size: 8em;
+}
+.grid div{
+    grid-column: 2/ 6;
+    text-wrap: nowrap;
+}
+.grid div:nth-child(even){
+    text-align: right;
+}
+.grid div:nth-child(5){
+    grid-column: 1/ 6;
+}
+.grid div:nth-child(4){
+    grid-column: 1/ 7;
+}
+
+.autoBlur{
+    animation: autoBLurAnimation linear both;
+    animation-timeline: view();
+}
+@keyframes autoBLurAnimation{
+    0%{
+        filter: blur(40px);
+    }
+    25%, 35%{
+        filter: blur(0px);
+    }
+    100%{
+        filter: blur(40px);
+    }
+}
+
+.bottom {
+    height: 5dvh;
+    width: 100%;
+    background-color: var(--neon-yellow);
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    font-family: "Orbitron", sans-serif;
+}
+
+.bottom-span {
+    border: 1px black solid;
+    height: 2px;
+    width: 500px;
+}
+i {
+    font-size: 19px;
+    margin: 0 6px;
+  }
+
+
