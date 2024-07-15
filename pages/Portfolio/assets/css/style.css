@@ -53,16 +53,6 @@ body {
     align-items: center;
 }
 
-.logo {
-  position: absolute;
-  top: -11px;
-  left: -35px;
-  height: 100px;
-  width: 100px;
-  margin-left: 25px;
-  transition: 0.7s ease-out;
-}
-
 a{
     text-decoration: none;
     color: inherit;
@@ -155,7 +145,7 @@ a{
 }
 
 .myName {
-  position: absolute;
+  position: fixed;
   inset: 40px;
   color: #fff;
   letter-spacing: 5px;

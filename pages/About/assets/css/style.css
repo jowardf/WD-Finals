@@ -171,7 +171,7 @@ a{
 }
 
 .myName {
-  position: absolute;
+  position: fixed;
   inset: 40px;
   color: #fff;
   letter-spacing: 5px;
