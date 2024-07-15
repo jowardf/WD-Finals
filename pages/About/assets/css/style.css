@@ -724,7 +724,7 @@ a{
 }
 
 .autoShow {
-    animation: autoShowAnimation both;
+    animation: autoShowAnimation linear both;
     animation-timeline: view(70% 5%);
 }
 
