@@ -12,7 +12,7 @@
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. (Optional)
+ 
 </div>
 
 <br />
@@ -70,7 +70,7 @@ The purpose of this project is to create a personal website that highlights my w
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-Deployment Link: 
+Deployment Link: https://jowardf.github.io/WD-Finals/
 ## Rules, Practices and Principles
 1. Always use `WD-` in the front of the Title of the Project for the Subject followed by your custom naming.
 2. Do not rename any .html files; always use `index.html` as the filename.
